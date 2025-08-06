@@ -1,3 +1,5 @@
+### Това казва на Flux-a какво да инсталира
+### Вкарва го в source.toolkit.fluxcd.io/HelmRepository CRD
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -17,7 +19,7 @@ spec:
     createNamespace: true
   values:
     manager:
-      replicaCount: 2
+      replicaCount: 1
     registry:
       tls:
         enabled: false
