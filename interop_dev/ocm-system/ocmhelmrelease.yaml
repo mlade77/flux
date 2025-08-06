@@ -16,5 +16,8 @@ spec:
   install:
     createNamespace: true
   values:
-    # Тук можеш да сложиш стойности за override на values.yaml
-    replicaCount: 2
+    manager:
+      replicaCount: 2
+    registry:
+      tls:
+        enabled: false
