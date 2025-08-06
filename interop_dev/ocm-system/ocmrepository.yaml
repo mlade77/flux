@@ -1,0 +1,9 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ocm-charts
+  namespace: flux-system
+spec:
+  type: oci
+  url: oci://ghcr.io/open-component-model/helm
+  interval: 10m
