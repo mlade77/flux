@@ -1,0 +1,21 @@
+# specify a schema to validate the configuration and get auto-completion in your editor
+# yaml-language-server: $schema=https://ocm.software/schemas/configuration-schema.yaml
+
+components:
+# podinfo component
+- name: ${COMPONENT_NAME_PREFIX}/podinfo
+  labels:
+  - name: "org.opencontainers.image.source"
+    value: "https://github.com/stb1337/ocm-hello-world-v1"
+  version: "6.7.0"
+  provider:
+    name: baj_mile
+  resources:
+  # Helm Chart in Helm repository
+  - name: helm-chart-external-helm-repo
+    type: helmChart
+    version: "6.7.0"
+    access:
+      type: helm
+      helmChart: podinfo:"6.7.0"
+      helmRepository: https://stefanprodan.github.io/podinfo
