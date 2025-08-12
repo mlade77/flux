@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  interval: 5m
+  suspend: false
+  chart:
+    spec:
+      chart: nginx
+      version: 21.1.4
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami-charts
+        namespace: flux-system
+  install:
+    createNamespace: false
+    wait: true
+    timeout: 5m
+    # force: boolean
+    # disableHooks: boolean
+  # values:
+  #   manager:
+  #     replicaCount: 1
+  #   registry:
+  #     tls:
+  #       enabled: false
