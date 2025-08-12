@@ -16,6 +16,10 @@ spec:
         namespace: flux-system
   install:
     createNamespace: false
+    wait: true
+    timeout: 5m
+    # force: boolean
+    # disableHooks: boolean
   # values:
   #   manager:
   #     replicaCount: 1
