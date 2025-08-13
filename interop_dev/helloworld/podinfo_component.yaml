@@ -5,8 +5,9 @@
 #   namespace: default
 # spec:
 #   interval: 1m0s
-#   component: phoban.io/podinfo
+#   component: github.com/acme.org/helloworld
 #   version:
 #     semver: ">=1.0.0"
 #   repository:
-#     url: ghcr.io/phoban01
+#     # url: ghcr.io/phoban01
+#     url: "./ctf-hello-world"

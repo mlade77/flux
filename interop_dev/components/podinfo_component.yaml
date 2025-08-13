@@ -1,14 +1,12 @@
 apiVersion: delivery.ocm.software/v1alpha1
 kind: ComponentVersion
 metadata:
-  name: helloworld
-  namespace: default
+  name: podinfo
+  namespace: ocm-system
 spec:
   interval: 1m0s
-  component: github.com/acme.org/helloworld
+  component: phoban.io/podinfo
   version:
-    semver: ">=1.0.0"
+    semver: ">=v6.3.5"
   repository:
-    type: local
-    path: ./ctf-hello-world
-    # url: ghcr.io/phoban01
+    url: ghcr.io/phoban01
