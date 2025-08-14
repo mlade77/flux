@@ -1,0 +1,14 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: FluxDeployer
+metadata:
+  name: helloworld
+  namespace: ocm-system
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: Resource
+    name: helloworld-deployment
+  kustomizationTemplate:
+    path: ./
+    prune: true
+    targetNamespace: default
