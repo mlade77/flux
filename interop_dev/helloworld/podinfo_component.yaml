@@ -1,13 +1,12 @@
-# apiVersion: delivery.ocm.software/v1alpha1
-# kind: ComponentVersion
-# metadata:
-#   name: helloworld
-#   namespace: default
-# spec:
-#   interval: 1m0s
-#   component: github.com/acme.org/helloworld
-#   version:
-#     semver: ">=1.0.0"
-#   repository:
-#     # url: ghcr.io/phoban01
-#     url: "./ctf-hello-world"
+apiVersion: delivery.ocm.software/v1alpha1
+kind: ComponentVersion
+metadata:
+  name: helloworld
+  namespace: default
+spec:
+  interval: 1m0s
+  component: github.com/acme.org/helloworld
+  version:
+    semver: ">=v1.0.0"
+  repository:
+    url: ghcr.io/mlade77

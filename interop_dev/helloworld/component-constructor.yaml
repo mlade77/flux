@@ -1,7 +1,7 @@
 # specify a schema to validate the configuration and get auto-completion in your editor
 # yaml-language-server: $schema=https://ocm.software/schemas/configuration-schema.yaml
 components:
-- name: github.com/acme.org/helloworld
+- name: helloworld
   # version needs to follow "relaxed" SemVer
   version: 1.0.0
   provider:
@@ -20,3 +20,27 @@ components:
       access:
         type: ociArtifact
         imageReference: gcr.io/google_containers/echoserver:1.10
+
+
+# ocm add componentversions --create --file ctf-hello-world component-constructor.yaml
+# ocm transfer componentversions --recursive --copy-resources ./ctf-hello-world ./ctf.tgz
+# oras push ghcr.io/mlade77/component-descriptors/fuck.io/helloworld:1.0.0 ./ctf.tgz
+
+# {
+#   "schemaVersion": 1,
+#   "artifacts": [
+#     {
+#       "repository": "component-descriptors/fuck.io/helloworld",
+#       "tag": "1.0.0",
+#       "digest": "sha256:6ace930cf426a7e85dc8efc27791609a0e1032a33570e10121735c5d0e979ba3"
+#     }
+#   ]
+# }
+
+#         "Id": "sha256:d6812ef59a4fcc875fbd2b0e6f335b1dd209a4666aa81b9ec96e5c078ea4c443",
+#         "RepoTags": [
+#             "ghcr.io/phoban01/component-descriptors/phoban.io/podinfo:v1.0.0"
+#         ],
+#         "RepoDigests": [
+#             "ghcr.io/phoban01/component-descriptors/phoban.io/podinfo@sha256:d6812ef59a4fcc875fbd2b0e6f335b1dd209a4666aa81b9ec96e5c078ea4c443"
+#         ],
