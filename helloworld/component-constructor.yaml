@@ -1,22 +1,72 @@
 # specify a schema to validate the configuration and get auto-completion in your editor
 # yaml-language-server: $schema=https://ocm.software/schemas/configuration-schema.yaml
+# components:
+# - name: github.com/helloworld
+#   # version needs to follow "relaxed" SemVer
+#   version: 1.0.2
+#   provider:
+#     name: mlade77
+#   resources:
+#     # local Helm chart resource
+#     - name: mychart
+#       type: helmChart
+#       version: 6.9.1
+#       input:
+#         type: dir
+#         path: ./podinfo
+#     # remote image resource
+#     - name: image
+#       type: ociImage
+#       version: 6.9.1
+#       access:
+#         type: ociArtifact
+#         imageReference: ghcr.io/stefanprodan/podinfo:6.9.1
+# specify a schema to validate the configuration and get auto-completion in your editor
+# yaml-language-server: $schema=https://ocm.software/schemas/configuration-schema.yaml
+
 components:
-- name: github.com/helloworld
-  # version needs to follow "relaxed" SemVer
-  version: 1.0.0
+# podinfo component
+- name: ocm.software/echoserver
+  # labels:
+  # - name: "org.opencontainers.image.source"
+  #   value: "https://github.com/stb1337/ocm-hello-world-v1"
+  version: 1.0.2
   provider:
     name: mlade77
   resources:
-    # local Helm chart resource
-    - name: mychart
-      type: helmChart
-      input:
-        type: helm
-        path: ./podinfo
-    # remote image resource
-    - name: image
-      type: ociImage
-      version: 1.0.0
-      access:
-        type: ociArtifact
-        imageReference: gcr.io/google_containers/echoserver:1.10
+  # # Helm chart in OCI registry
+  # - name: helm-chart-external-oci
+  #   type: helmChart
+  #   version: 6.9.1
+  #   access:
+  #     type: ociArtifact
+  #     imageReference: ghcr.io/stefanprodan/charts/podinfo:6.9.1
+  # Helm Chart in Helm repository
+  - name: helm-chart-external-helm-repo
+    type: helmChart
+    version: 1.0.2
+    access:
+      type: helm
+      helmChart: echo-server:0.5.0
+      helmRepository: https://ealenn.github.io/charts
+  # Helm chart as local tgz file
+  - name: helm-chart-local-tgz
+    type: helmChart
+    version: 1.0.2
+    input:
+      type: helm
+      path: echo-server-0.5.0.tgz
+  # Helm chart as local folder
+  - name: helm-chart-local-folder
+    type: helmChart
+    version: 1.0.2
+    input:
+      type: dir
+      path: ./echo-server/
+  # Image referenced in the Helm chart
+  # - name: image
+  #   type: ociImage
+  #   version: 0.6.0
+  #   access:
+  #     type: ociArtifact
+  #     imageReference: ghcr.io/stefanprodan/podinfo:6.9.1

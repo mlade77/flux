@@ -1,0 +1,53 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: ComponentVersion
+metadata:
+  name: echoserver
+  namespace: ocm-system
+spec:
+  interval: 10s
+  component: ocm.software/echoserver 
+  version:
+    semver: "=1.0.2"
+  repository:
+    url: ghcr.io/mlade77
+    secretRef:
+      name: ghcr-pull-secret
+---
+apiVersion: delivery.ocm.software/v1alpha1
+kind: Resource
+metadata:
+  name: ocm-echoserver-helm-chart-local-folder
+  namespace: ocm-system
+spec:
+  interval: 10s
+  sourceRef:
+    apiVersion: delivery.ocm.software/v1alpha1
+    kind: ComponentVersion
+    name: echoserver
+    namespace: ocm-system
+    resourceRef:
+      name: helm-chart-local-folder
+      version: "0.5.0"
+---
+apiVersion: delivery.ocm.software/v1alpha1
+kind: FluxDeployer
+metadata:
+  name: ocm-echoserver-helm-chart-local-folder
+  namespace: ocm-system
+spec:
+  interval: 10s
+  sourceRef:
+    apiVersion: delivery.ocm.software/v1alpha1
+    kind: Resource
+    name: ocm-echoserver-helm-chart-local-folder
+  helmReleaseTemplate:
+    values:
+      replicaCount: 1
+      serviceAccount:
+        enabled: true
+        name: "sa-podinfo-ghcr-io-1"
+        imagePullSecrets:
+        - name: pull-secret
+    interval: 10s
+    releaseName: "echoserver-helm-chart-local-folder"
+    targetNamespace: default
