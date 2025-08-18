@@ -30,7 +30,7 @@ components:
   # labels:
   # - name: "org.opencontainers.image.source"
   #   value: "https://github.com/stb1337/ocm-hello-world-v1"
-  version: 1.0.2
+  version: 1.0.3
   provider:
     name: mlade77
   resources:
@@ -44,7 +44,7 @@ components:
   # Helm Chart in Helm repository
   - name: helm-chart-external-helm-repo
     type: helmChart
-    version: 1.0.2
+    version: 1.0.3
     access:
       type: helm
       helmChart: echo-server:0.5.0
@@ -52,14 +52,14 @@ components:
   # Helm chart as local tgz file
   - name: helm-chart-local-tgz
     type: helmChart
-    version: 1.0.2
+    version: 1.0.3
     input:
       type: helm
       path: echo-server-0.5.0.tgz
   # Helm chart as local folder
   - name: helm-chart-local-folder
     type: helmChart
-    version: 1.0.2
+    version: 1.0.3
     input:
       type: dir
       path: ./echo-server/
