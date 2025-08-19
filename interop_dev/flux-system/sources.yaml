@@ -36,6 +36,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  provider: generic
   type: oci
   url: oci://public.ecr.aws
 ---
