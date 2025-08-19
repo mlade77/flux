@@ -1,11 +1,11 @@
 ### Това вкарва указания къде ocm-charts HELM repository се намира
 ### Вкарва го в source.toolkit.fluxcd.io/HelmRepository CRD
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: bitnami-charts
-  namespace: flux-system
-spec:
-  type: oci
-  url: oci://registry-1.docker.io/bitnamicharts
-  interval: 10m
+#apiVersion: source.toolkit.fluxcd.io/v1
+#kind: HelmRepository
+#metadata:
+#  name: bitnami-charts
+#  namespace: flux-system
+#spec:
+#  type: oci
+#  url: oci://registry-1.docker.io/bitnamicharts
+#  interval: 10m
