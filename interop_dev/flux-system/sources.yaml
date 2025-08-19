@@ -28,22 +28,17 @@ spec:
   provider: generic
   type: oci
   url: oci://registry-1.docker.io/bitnamicharts
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: ECR_AWS
-  namespace: flux-system
-spec:
-  interval: 1h
-  # layerSelector:
-  #   mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
-  #   operation: copy
-  type: oci
-  url: oci://public.ecr.aws
-  # ref:
-  #   semver: "1.6.1" #"3.2.x" # check for new patch versions every hour
----
+# ---
+# apiVersion: source.toolkit.fluxcd.io/v1
+# kind: HelmRepository
+# metadata:
+#   name: ECR_AWS
+#   namespace: flux-system
+# spec:
+#   interval: 1h
+#   type: oci
+#   url: oci://public.ecr.aws
+# ---
 # apiVersion: source.toolkit.fluxcd.io/v1
 # kind: OCIRepository
 # metadata:
