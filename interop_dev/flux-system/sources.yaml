@@ -30,8 +30,8 @@ spec:
     operation: copy
   # url: oci://registry-1.docker.io/bitnamicharts
   url: oci://registry-1.docker.io/bitnamicharts/external-dns
-  # ref:
-  #   semver: "9.0.3" #"3.2.x" # check for new patch versions every hour
+  ref:
+    semver: "9.0.3" #"3.2.x" # check for new patch versions every hour
 # apiVersion: source.toolkit.fluxcd.io/v1
 # kind: HelmRepository
 # metadata:
