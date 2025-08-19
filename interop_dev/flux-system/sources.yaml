@@ -30,7 +30,7 @@ spec:
   url: oci://registry-1.docker.io/bitnamicharts
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
+kind: HelmRepository
 metadata:
   name: ECR_AWS
   namespace: flux-system
