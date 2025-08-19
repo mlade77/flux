@@ -32,3 +32,12 @@ spec:
   # url: oci://registry-1.docker.io/bitnamicharts/external-dns
   # ref:
   #   semver: "9.0.3" #"3.2.x" # check for new patch versions every hour
+# apiVersion: source.toolkit.fluxcd.io/v1
+# kind: HelmRepository
+# metadata:
+#   name: bitnami-charts
+#   namespace: flux-system
+# spec:
+#   type: oci
+#   url: oci://registry-1.docker.io/bitnamicharts
+#   interval: 10m
