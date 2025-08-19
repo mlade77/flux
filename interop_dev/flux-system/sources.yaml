@@ -28,8 +28,8 @@ spec:
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
-  url: oci://registry-1.docker.io/bitnamicharts
-  # url: oci://registry-1.docker.io/bitnamicharts/external-dns
+  # url: oci://registry-1.docker.io/bitnamicharts
+  url: oci://registry-1.docker.io/bitnamicharts/external-dns
   # ref:
   #   semver: "9.0.3" #"3.2.x" # check for new patch versions every hour
 # apiVersion: source.toolkit.fluxcd.io/v1
