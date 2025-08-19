@@ -21,24 +21,24 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: bitnamiOCI
+  name: bitnami-oci
   namespace: flux-system
 spec:
   interval: 1h
   provider: generic
   type: oci
   url: oci://registry-1.docker.io/bitnamicharts
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: HelmRepository
-# metadata:
-#   name: ECR_AWS
-#   namespace: flux-system
-# spec:
-#   interval: 1h
-#   type: oci
-#   url: oci://public.ecr.aws
-# ---
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ecr-aws
+  namespace: flux-system
+spec:
+  interval: 1h
+  type: oci
+  url: oci://public.ecr.aws
+---
 # apiVersion: source.toolkit.fluxcd.io/v1
 # kind: OCIRepository
 # metadata:
