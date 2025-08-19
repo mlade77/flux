@@ -7,7 +7,7 @@ spec:
   interval: 10s
   component: ocm.software/echoserver 
   version:
-    semver: "=1.0.2"
+    semver: "=1.0.3"
   repository:
     url: ghcr.io/mlade77
     secretRef:
@@ -16,7 +16,7 @@ spec:
 apiVersion: delivery.ocm.software/v1alpha1
 kind: Resource
 metadata:
-  name: ocm-echoserver-helm-chart-local-folder
+  name: ocm-echoserver-helm-chart-local-tgz
   namespace: ocm-system
 spec:
   interval: 10s
@@ -26,20 +26,20 @@ spec:
     name: echoserver
     namespace: ocm-system
     resourceRef:
-      name: helm-chart-local-folder
+      name: helm-chart-local-tgz
       version: "0.5.0"
 ---
 apiVersion: delivery.ocm.software/v1alpha1
 kind: FluxDeployer
 metadata:
-  name: ocm-echoserver-helm-chart-local-folder
+  name: ocm-echoserver-helm-chart-local-tgz
   namespace: ocm-system
 spec:
   interval: 10s
   sourceRef:
     apiVersion: delivery.ocm.software/v1alpha1
     kind: Resource
-    name: ocm-echoserver-helm-chart-local-folder
+    name: ocm-echoserver-helm-chart-local-tgz
   helmReleaseTemplate:
     values:
       replicaCount: 1
@@ -49,5 +49,5 @@ spec:
         imagePullSecrets:
         - name: pull-secret
     interval: 10s
-    releaseName: "echoserver-helm-chart-local-folder"
+    releaseName: "echoserver-helm-chart-local-tgz"
     targetNamespace: default
